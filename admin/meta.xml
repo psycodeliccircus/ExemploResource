@@ -1,4 +1,4 @@
 ﻿<meta>
-  <info name="Administration Utilities" author="Guadmaz" type="script" />        
+  <info name="Utilitários de administração" author="Guadmaz, RenildoMarcio" type="script" />        
   <script src="admin.cs"/>
 </meta>
