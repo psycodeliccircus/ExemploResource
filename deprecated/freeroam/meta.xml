@@ -1,0 +1,4 @@
+<meta>
+    <info name="Freeroam" author="Guadmaz" type="gamemode" />
+    <script src="freeroam.cs"/>
+</meta>
