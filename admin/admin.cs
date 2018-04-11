@@ -10,11 +10,11 @@ public class AdminScript : Script
         {
             case LoginResult.LoginSuccessful:
             case LoginResult.LoginSuccessfulNoPassword:
-                NAPI.Chat.SendChatMessageToPlayer(player, "Logged in as ~b~" + NAPI.ACL.GetPlayerAclGroup(player) + "~w~.");
+                NAPI.Chat.SendChatMessageToPlayer(player, "Logado como ~b~" + NAPI.ACL.GetPlayerAclGroup(player) + "~w~.");
                 break;
 
             case LoginResult.WrongPassword:
-                NAPI.Chat.SendChatMessageToPlayer(player, "Please log in with ~b~/login [password]");
+                NAPI.Chat.SendChatMessageToPlayer(player, "Por favor faça o login com ~b~/login [senha]");
                 break;
         }
     }
@@ -32,21 +32,21 @@ public class AdminScript : Script
         switch (logResult)
         {
             case LoginResult.NoAccountFound:
-                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ No account found with your name.");
+                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ Nenhuma conta encontrada com seu nome.");
                 break;
 
             case LoginResult.LoginSuccessfulNoPassword:
             case LoginResult.LoginSuccessful:
-                NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Login successful!~w~ Logged in as ~b~" + NAPI.ACL.GetPlayerAclGroup(sender) + "~w~.");
+                NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Login bem sucedido!~w~ Logado como ~b~" + NAPI.ACL.GetPlayerAclGroup(sender) + "~w~.");
                 break;
             case LoginResult.WrongPassword:
-                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ Wrong password!");
+                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ Senha incorreta!");
                 break;
             case LoginResult.AlreadyLoggedIn:
-                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ You're already logged in!");
+                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ Você já está logado!");
                 break;
             case LoginResult.ACLDisabled:
-                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ ACL has been disabled on this server.");
+                NAPI.Chat.SendChatMessageToPlayer(sender, "~r~ERROR:~w~ A ACL foi desativada neste servidor.");
                 break;
         }
     }
@@ -74,16 +74,16 @@ public class AdminScript : Script
     {
         if (!NAPI.Resource.DoesResourceExist(resource))
         {
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~No such resource found: \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Nenhum resource desse tipo encontrado: \"" + resource + "\"");
         }
         else if (NAPI.Resource.IsResourceRunning(resource))
         {
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Resource \"" + resource + "\" is already running!");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Resource \"" + resource + "\" já está a rodando!");
         }
         else
         {
             NAPI.Resource.StartResource(resource);
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Started resource \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Iniciado resource \"" + resource + "\"");
         }
     }
 
@@ -92,16 +92,16 @@ public class AdminScript : Script
     {
         if (!NAPI.Resource.DoesResourceExist(resource))
         {
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~No such resource found: \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Nenhum resource desse tipo encontrado: \"" + resource + "\"");
         }
         else if (!NAPI.Resource.IsResourceRunning(resource))
         {
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Resource \"" + resource + "\" is not running!");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Resource \"" + resource + "\" já está a rodando!");
         }
         else
         {
             NAPI.Resource.StopResource(resource);
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Stopped resource \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Parado resource \"" + resource + "\"");
         }
     }
 
@@ -112,11 +112,11 @@ public class AdminScript : Script
         {
             NAPI.Resource.StopResource(resource);
             NAPI.Resource.StartResource(resource);
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Restarted resource \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~g~Reiniciado resource \"" + resource + "\"");
         }
         else
         {
-            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~No such resource found: \"" + resource + "\"");
+            NAPI.Chat.SendChatMessageToPlayer(sender, "~r~Nenhum resource desse tipo encontrado: \"" + resource + "\"");
         }
     }
 
