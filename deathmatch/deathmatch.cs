@@ -154,7 +154,7 @@ public class Deathmatch : Script
 
             if (NAPI.Data.GetEntitySharedData(killer.Handle, "dm_kills") >= KillTarget)
             {
-                NAPI.Chat.SendChatMessageToAll($"~b~~h~{killer.Name}~h~~w~ has won the round with ~h~{KillTarget}~h~ kills and {NAPI.Data.GetEntitySharedData(player.Handle, "dm_deaths")} deaths!");
+                NAPI.Chat.SendChatMessageToAll($"~b~~h~{killer.Name}~h~~w~ ganhou a rodada com ~h~{KillTarget}~h~ mortes e {NAPI.Data.GetEntitySharedData(player.Handle, "dm_deaths")} mortes!");
                 //API.Exported.mapcycler.endRound();
             }
 
@@ -167,29 +167,29 @@ public class Deathmatch : Script
                     NAPI.Blip.SetBlipSprite(kBlip, 303);
                     NAPI.Blip.SetBlipColor(kBlip, 1);
 
-                    NAPI.Chat.SendChatMessageToAll($"~b~{killer.Name}~w~ is on a killstreak! ~r~{Killstreaks[killer]}~w~ kills and counting!");
+                    NAPI.Chat.SendChatMessageToAll($"~b~{killer.Name}~w~ está em um killstreak! ~r~{Killstreaks[killer]}~w~ mata e contando!");
                     switch (Killstreaks[killer])
                     {
                         case 4:
                             NAPI.Player.SetPlayerHealth(killer, Math.Min(100, NAPI.Player.GetPlayerHealth(killer) + 25));
-                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Health bonus!");
+                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Bônus de saúde!");
                             break;
 
                         case 6:
                             NAPI.Player.SetPlayerHealth(killer, Math.Min(100, NAPI.Player.GetPlayerHealth(killer) + 50));
-                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Health bonus!");
+                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Bônus de saúde!");
                             break;
 
                         case 8:
                             NAPI.Player.SetPlayerHealth(killer, Math.Min(100, NAPI.Player.GetPlayerHealth(killer) + 75));
                             NAPI.Player.SetPlayerArmor(killer, Math.Min(100, NAPI.Player.GetPlayerArmor(killer) + 25));
-                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Health and armor bonus!");
+                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Saúde e bônus de armadura!");
                             break;
 
                         case 12:
                             NAPI.Player.SetPlayerHealth(killer, Math.Min(100, NAPI.Player.GetPlayerHealth(killer) + 75));
                             NAPI.Player.SetPlayerArmor(killer, Math.Min(100, NAPI.Player.GetPlayerArmor(killer) + 50));
-                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Health and armor bonus!");
+                            NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Saúde e bônus de armadura!");
                             break;
 
                         default:
@@ -197,7 +197,7 @@ public class Deathmatch : Script
                             {
                                 NAPI.Player.SetPlayerHealth(killer, Math.Min(100, NAPI.Player.GetPlayerHealth(killer) + 75));
                                 NAPI.Player.SetPlayerArmor(killer, Math.Min(100, NAPI.Player.GetPlayerArmor(killer) + 75));
-                                NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Health and armor bonus!");
+                                NAPI.Chat.SendChatMessageToPlayer(killer, "~g~Saúde e bônus de armadura!");
                             }
                             break;
                     }
@@ -214,7 +214,7 @@ public class Deathmatch : Script
         {
             if (Killstreaks[player] >= 3 && killer != null)
             {
-                NAPI.Chat.SendChatMessageToAll($"~b~{killer.Name}~w~ ruined ~r~{player.Name}~w~'s killstreak!");
+                NAPI.Chat.SendChatMessageToAll($"~b~{killer.Name}~w~ arruinado ~r~{player.Name}~w~'s killstreak!");
                 NAPI.Blip.SetBlipColor(pBlip, 0);
                 NAPI.Blip.SetBlipSprite(pBlip, 1);
             }
