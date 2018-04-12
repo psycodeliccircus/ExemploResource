@@ -3,6 +3,6 @@
     <script src="deathmatch.cs" />
     <!-- <include resource="playerblips" /> -->
     <settings>
-    	<settings name="victory_kills" value="100" description="Number of kills someone has to get to win the round." />
+    	<settings name="victory_kills" value="100" description="Número de mortes que alguém precisa para ganhar a rodada." />
     </settings>
 </meta>
